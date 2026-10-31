@@ -68,6 +68,9 @@ app.post('/expenses', (req, res) => {
   res.status(201).json(row);
 });
 
+// GET /expenses/export.csv?from=YYYY-MM-DD&to=YYYY-MM-DD  (see src/export.js)
+require('./export').register(app, { store, isValidDate });
+
 // --- routes end ---
 
 module.exports = app;
